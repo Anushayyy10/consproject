@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+
+        }
+
+        header,
+        .top-header,
+        .bottom-header {
+            border: 2px solid;
+        }
+
+        .top-header,
+        .bottom-header {
+            height: 70px;
+        }
+
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+
+        .contact-section {
+            display: flex;
+        }
+
+        .email-box {
+            display: flex;
+            gap: 20px;
+            padding-right: 10px;
+        }
+
+        .call-box {
+            display: flex;
+            gap: 20px;
+        }
+
+        .cta-btn-section a {
+            text-decoration: none;
+            background: rgb(51, 51, 121);
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            border-radius: 20px;
+            color: white;
+        }
+
+
+
+        .menu {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .bottom-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 40px;
+            padding-right: 40px;
+            background: rgb(70, 70, 119);
+        }
+
+        .search-section input {
+            border-radius: 20px;
+            border: 1px solid white;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            padding-left: 15px;
+            background: transparent;
+            color: white;
+        }
+
+        .Service-button {
+            border-radius: 20px;
+
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            background-color: rgb(91, 91, 231);
+
+            margin-right: 900px;
+            margin-top: 15px;
+        }
+
+        .Service-button a {
+            text-decoration: none;
+            color: rgb(44, 44, 71);
+        }
+
+
+        .hero-img {
+            width: 100%;
+            height: 600px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+
+        }
+
+        .content {
+            padding-left: 300px;
+            padding-top: 150px;
+            line-height: 40px;
+        }
+
+        .content h1 {
+            color: white;
+        }
+
+        .card1,
+        .card2,
+        .card3,
+        .card4 {
+            border: 2px solid rgb(0, 225, 255);
+            width: fit-content;
+            margin: 10px;
+            padding: 50px;
+            background-color: rgb(134, 201, 243);
+
+
+        }
+
+        .success-btn {
+
+            border-radius: 20px;
+
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background-color: rgb(91, 91, 231);
+
+            margin-right: 350px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+
+        }
+
+        .success-btn a {
+            text-decoration: none;
+            padding: 20px;
+        }
+
+        .text-content {
+            text-align: center;
+            font-size: large;
+        }
+
+        .main-feature {
+            justify-content: center;
+            padding: 20px;
+            display: block;
+            text-align: left;
+            font-size: 40px;
+            color: black;
+            font-family: sans-serif;
+
+        }
+
+        .feature-para {
+            text-align: left;
+            color: rgb(46, 44, 44);
+            font-size: large;
+            font-family: sans-serif;
+            margin-bottom: 20px;
+        }
+
+        .cardsss {
+            display: flex;
+        }
+
+        .cardss {
+            display: flex;
+        }
+
+        .success-box {
+
+            border: 2px solid;
+            background: white;
+            padding: 20px;
+
+            margin-left: 750px;
+            margin-right: 100px;
+            margin-top: -530px;
+        }
+
+        .card-head {
+            text-align: center;
+            font-size: large;
+            color: rgb(39, 39, 77);
+        }
+
+        .card-para {
+            text-align: center;
+            font-style: normal;
+            color: rgb(59, 54, 54);
+        }
+
+        .success-content {
+            padding: 15px;
+        }
+
+        .guide {
+            background-image: url(meetimg.avif);
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 150px;
+            font-size: large;
+            text-align: center;
+        }
+
+        .best-text {
+            padding-top: 50px;
+            font-size: large;
+
+        }
+
+        .numbers {
+            display: flex;
+            gap: 30px;
+            background: white;
+            padding-bottom: 100px;
+            margin-top: -50px;
+            margin-left: 150px;
+            margin-right: 150px;
+            justify-content: center;
+        }
+
+
+
+        .service-text {
+            margin-top: 30px;
+            text-align: center;
+            font-size: large;
+            color: rgb(36, 36, 121);
+        }
+
+        .service-para {
+            margin-top: 30px;
+            text-align: center;
+            font-size: large;
+            color: rgb(54, 51, 51);
+        }
+
+        .ports {
+            display: flex;
+            border: 2px white;
+            width: fit-content;
+            height: 110px;
+
+            padding-right: 20px;
+        }
+
+        .portss {
+            display: flex;
+            border: 2px white;
+        }
+
+        .port {
+            padding-left: 150px;
+            margin-top: 20px;
+
+
+        }
+
+        .port1,
+        .port2,
+        .port3,
+        .port4,
+        .port5,
+        .port6 {
+            margin: 10px;
+            padding: 50px;
+            background: white;
+            border: 2px white;
+            width: fit-content;
+        }
+
+        .port-head {
+            color: rgb(43, 43, 105);
+            font-size: large;
+        }
+
+        .always {
+            background-image: url(meetimg2.avif);
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 200px;
+            text-align: center;
+            font-size: large;
+
+        }
+
+        .always-text {
+            padding-top: 80px;
+
+        }
+
+        .recent {
+            text-align: center;
+            color: rgb(18, 18, 80);
+            margin-top: 50px;
+            margin-bottom: 30px;
+        }
+
+        .recent-para {
+            text-align: center;
+            color: rgb(43, 41, 41);
+            margin-bottom: 30px;
+            font-size: large;
+        }
+
+        .color-img1 {
+            display: flex;
+            height: 300px;
+            width: 100%;
+
+        }
+
+        .color-img2 {
+            display: flex;
+            height: 300px;
+            width: 100%;
+        }
+
+        .Request {
+            background-image: url(meetimg2.avif);
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 600px;
+            padding-top: 80px;
+        }
+
+        .req-para {
+            padding-top: 20px;
+            font-size: large;
+        }
+
+        .form1,
+        .form2,
+        .form3 {
+            display: flex;
+
+
+        }
+
+        .form3 a {
+            text-decoration: none;
+            border-radius: 2px lightblue;
+            border: solid;
+
+
+        }
+
+
+
+        .blog-para {
+            text-align: center;
+
+            padding-top: 20px;
+            font-size: large;
+            color: rgb(82, 79, 79);
+        }
+
+        .blog-cards {
+            display: flex;
+
+
+
+        }
+
+        .blog-p {
+            margin-top: 10px;
+            font-size: large;
+
+
+        }
+
+        .blog1,
+        .blog2,
+        .blog3 {
+            padding-left: 40px;
+            margin-top: 20px;
+            box-sizing: border-box;
+            border: 2px lightblue;
+
+        }
+
+        .blog-img1 {
+            width: 300px;
+            border: 2px lightblue;
+            box-sizing: border-box;
+
+        }
+
+        .blog-head {
+            width: fit-content;
+            text-align: center;
+            justify-content: center;
+        }
+        .footer-col{
+            display: flex;
+            background: black;
+            color: white;
+            height: 900px;
+            justify-content: space-around;
+            padding-top: 100px;
+        }
+        .clients{
+            text-align: center;
+            font-size: large;
+            color: rgb(42, 42, 68);
+            margin-top: 50px;
+        }
+        .client-para{
+            margin-top: 30px;
+        }
+        .row{
+            
+            display: flex;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            justify-content: space-around;
+        }
+        .crd{
+            border: 2px solid lightblue;
+            margin: 20px;
+            padding: 80px;
+            padding-bottom: 20px;
+        
+        }
+        .client-card{
+            padding-left: 40px;
+            color: rgb(54, 52, 52);
+        }
+        .cc-para{
+            padding-left: 40px;
+            
+        }
+        .crd1{
+            display: flex;
+        }
+        .round{
+            border-radius: 100px;
+            height: 150px;
+    margin-bottom: 30px;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="top-header">
+            <div class=" logo-section">
+                <h2>Consolution</h2>
+            </div>
+            <div class="contact-section">
+                <div class="email-box">
+                    <div class="icon">
+                        $
+                    </div>
+                    <div class="text">
+                        <h4>anu@gmail.com</h4>
+                    </div>
+                </div>
+                <div class="call-box">
+                    <div class="icon">
+                        $
+                    </div>
+                    <div class="text">
+                        <h4>+759794858894</h4>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="cta-btn-section">
+                <a href="">Book a consultant</a>
+
+            </div>
+
+
+        </div>
+        <div class="bottom-header">
+            <div class="menu-section">
+                <ul class="menu">
+                    <li><a href="">Home</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Services</a></li>
+                    <li><a href="">Contact</a></li>
+                    <li><a href="">Blogs</a></li>
+                </ul>
+            </div>
+
+            <div class="search-section">
+                <input type="text" placeholder="search">
+            </div>
+        </div>
+    </header>
+    <section class="hero-section">
+
+        <div class="hero-img" style="background-image: url(meetimg2.avif);">
+
+            <div class="content">
+                <h4>WELCOME TO CONSOLUTION</h4>
+                <h1>WE HELP TO GROW<br>YOUR BUSINESS</h1>
+                <div class="Service-button">
+                    <a href="">OUR SERVICES </a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="card-section">
+        <div class="feature-section">
+            <h2 class="main-feature">Our Main Feature</h2>
+            <p class="feature-para">On her way she met a copy.The copy warned the Little Blind Text,<br>that where it
+                came from it would have been rewreitten a thousand times<br> and everything that was left from its orign
+                would be the word.</p>
+        </div>
+    </section>
+    <section>
+        <div class="CARDS">
+            <div class="cardsss">
+                <div class="card1">
+                    <i class="icon2 fa-solid fa-users"></i>
+                    <h5 class="card-head">Organization</h5>
+                    <p class="card-para">Far far away,behind the word<br>mountains far from the countries<br>Vokaila</p>
+
+
+                </div>
+
+                <div class="card2">
+                    <i class="icon2 fa-solid fa-chart"></i>
+                    <h5 class="card-head">Marketing strategy</h5>
+                    <p class="card-para">Far far away,behind the word<br>mountains far from the countries<br>Vokaila</p>
+                </div>
+            </div>
+            <div class="cardss">
+                <div class="card3">
+                    <i class="icon2 fa-solid fa-magnifying-glass-chart"></i>
+
+                    <h5 class="card-head">Risk Analysis</h5>
+                    <p class="card-para">Far far away,behind the word<br>mountains far from the countries<br>Vokaila</p>
+
+                </div>
+                <div class="card4">
+                    <i class="icon2 fa-solid fa-handshake"></i>
+
+                    <h5 class="card-head">Capital Market</h5>
+                    <p class="card-para">Far far away,behind the word<br>mountains far from the countries<br>Vokaila</p>
+
+
+                </div>
+
+
+            </div>
+        </div>
+        <section class="success-box">
+            <div class="img">
+                <img src="cimg2.jpg">
+            </div>
+            <div class="text-content">
+                <h3>Read Our Success Story For Inspiration</h3>
+                <p>Far far away,behimnd the word<br> mountains far from the countries <br>Vokaila and consonantia ,there
+                    lived the <br>blind texts.Seperated they lived in<br> Bookmarksgrove right at the coast of <br>the
+                    semantics ,a large language ocean.<br><br>On her way she met a copy.The copy <br>warned the Little
+                    Blind
+                    Text,that where it came from it would
+                    have been<br> rewreitten a thousand times and <br>everything that was left from its orign<br> would
+                    be
+                    the
+                    word. </p>
+            </div>
+            <div class="success-btn">
+                <a href="">Contact</a>
+
+            </div>
+
+        </section>
+        <section>
+            <div class="guide">
+                <h1 class="best-text">YOU ALWAYS GET THE BEST GUIDANCE</h1>
+            </div>
+
+
+            <div class="numbers">
+                <div>
+                    <h1>705</h1>
+                    <p>Projects completed</p>
+                </div>
+                <div>
+                    <h1>809</h1>
+                    <p>Satisfied Clients</p>
+                </div>
+                <div>
+                    <h1>335</h1>
+                    <p>Awards Received</p>
+                </div>
+                <div>
+                    <h1>35</h1>
+                    <p>Years of Experience</p>
+                </div>
+
+            </div>
+        </section>
+        <section class="best-services">
+            <h1 class="service-text">OUR BEST SERVICES</h1>
+            <p class="service-para">Separated the live in.A small river named Duden flows by their place and supplies it
+                with the <br> necessary regelialia.It is a paradesmatic country.</p>
+
+
+
+        </section>
+        <section class="port">
+            <div class="ports">
+                <div class="port1 ">
+                    <i class="icon-port1"></i>
+                    <h5 class="port-head">Business Analysis </h5>
+                    <p class="port-para">Far far away,behind the world mountains<br>far from the countries Vokalia</p>
+                </div>
+                <div class="port2">
+                    <i class="icon-port2"></i>
+                    <h5 class="port-head">Business Consulting</h5>
+                    <p class="port-para">Far far away,behind the world mountains<br>far from the countries Vokalia</p>
+
+                </div>
+                <div class="port3">
+                    <i class="icon-port3"></i>
+                    <h5 class="port-head">Business Insurance</h5>
+                    <p class="port-para">Far far away,behind the world mountains<br>far from the countries Vokalia</p>
+                </div>
+            </div>
+            <div class="portss">
+
+                <div class="port4">
+                    <i class="icon-port4"></i>
+                    <h5 class="port-head">Global Investigation</h5>
+                    <p class="port-para">Far far away,behind the world mountains<br>far from the countries Vokalia</p>
+
+                </div>
+                <div class="port5">
+                    <i class="icon-port5"></i>
+                    <h5 class="port-head">Audit and Evaluation</h5>
+                    <p class="port-para">Far far away,behind the world mountains<br>far from the countries Vokalia</p>
+
+                </div>
+                <div class="port6">
+                    <i class="icon-port6"></i>
+                    <h5 class="port-head">Marketing Strategy</h5>
+                    <p class="port-para">Far far away,behind the world mountains<br>far from the countries Vokalia</p>
+
+                </div>
+
+            </div>
+
+
+        </section>
+        <section class="always">
+            <h1 class="always-text">YOU ALWAYS GET THE BEST GUIDANCE</h1>
+
+        </section>
+        <section>
+            <div>
+                <h1 class="recent">OUR RECENT PROJECTS</h1>
+                <p class="recent-para">Separated the live in.A small river named Duden flows by their place and supplies
+                    it
+                    with the <br> necessary regelialia.It is a paradesmatic country.</p>
+            </div>
+            <div>
+                <div class="color-img">
+                    <div class="color-img1">
+                        <img class="color1" src="hand.jpg">
+                        <img class="color2" src="dd.jpg">
+                        <img class="color3" src="laa.jpg">
+                        <img class="color4" src="mii.jpg">
+                    </div>
+
+                    <div class="color-img2">
+                        <img class="color5" src="diary2.jpg">
+                        <img class="color6" src="diary3.jpg">
+                        <img class="color7" src="last.jpg">
+                        <img class="color8" src="wall.jpg">
+
+                    </div>
+
+                </div>
+
+        </section>
+        <section class="Request">
+            <h1 class="req-head">REQUEST A QUOTE</h1>
+            <p class="req-para">Far far away,behind the world mountains ,far from the countries<br> Vokalia and
+                Consonantia,there lived the blind text.</p>
+
+            <div class="form1">
+                <label"> your name</label>
+                    <input type="text"> Email</input>
+            </div>
+            <div class="form2">
+                <lable> Select guidance</lable>
+                <input type="text"> Phone</input>
+            </div>
+            <div class="form3">
+                <lable> message</lable>
+                <a href="">REQUEST A QUOTE</a>
+            </div>
+            </div>
+        </section>
+        <section>
+            <div class="blogs">
+                <h1 class="blog-head">RECENT BLOGS</h1>
+                <p class="blog-para">Separated the live in.A small river named Duden flows by their place and supplies
+                    it with the <br> necessary regelialia.It is a paradesmatic country.</p>
+            </div>
+        </section>
+        <section>
+            <div class="blog-cards">
+
+                <div class="blog1">
+                    <div class="blog-img1">
+                        <img src="meetimg2.avif">
+                    </div>
+                    <h1 class="blog-h">How to build a strategy your team will follow.</h1>
+                    <p class="blog-p">Far far away,behind the world mountains ,far from the countries<br> Vokalia and
+                        Consonantia,there lived the blind text.</p>
+                    <div class="read-btn">
+                        <a href="">READ MORE</a>
+                        <h5 class="add">Admin</h5>
+                    </div>
+
+                </div>
+                <div class="blog2">
+                    <div class="blog-img2">
+                        <img src="meetimg2.avif">
+                    </div>
+                    <h1 blog-h>How to build a strategy your team will follow.</h1>
+                    <p class="blog-p">Far far away,behind the world mountains ,far from the countries<br> Vokalia and
+                        Consonantia,there lived the blind text.</p>
+                    <div class="read-btn">
+                        <a href="">READ MORE</a>
+                        <h5 class="add">Admin</h5>
+                    </div>
+
+                </div>
+                <div class="blog3">
+                    <div class="blog-img3">
+                        <img src="meetimg2.avif">
+                    </div>
+                    <h1 blog-h>How to build a strategy your team will follow.</h1>
+                    <p class="blog-p">Far far away,behind the world mountains ,far from the countries<br> Vokalia and
+                        Consonantia,there lived the blind text.</p>
+                    <div class="read-btn">
+                        <a href="">READ MORE</a>
+                        <h5 class="add">Admin</h5>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="clients">
+                <h1>WHAT OUR CLIENTS SAY</h1>
+                <p class="client-para">Separated the live in.A small river named Duden flows by their place and supplies
+                    it with the <br> necessary regelialia.It is a paradesmatic country.</p>
+
+            </div>
+        </section>
+        <section class="row">
+            <div class="crd">
+                <h3 class="client-card">Far far away,behind the world mountains ,far from the countries<br> Vokalia and
+                    Consonantia,there lived the blind text.</h3>
+                <h2 class="cc-para">Ken Bosh</h2>
+
+            </div>
+            <div class="crd">
+                <div class="crd1">
+                    <img class="round" src="cimg.jpg">
+
+                <h3 class="client-card">Far far away,behind the world mountains ,far from the countries<br> Vokalia and
+                    Consonantia,there lived the blind text.</h3>
+                    </div>
+                <h2 class="cc-para">Racky Handerson</h2>
+
+            </div>
+            <div class="crd">
+                <h3 class="client-card">Far far away,behind the world mountains ,far from the countries<br> Vokalia and
+                    Consonantia,there lived the blind text.</h3>
+                <h2 class="cc-para">Henry Dee</h2>
+
+            </div>
+            <div class="crd">
+                <h3 class="client-card">Far far away,behind the world mountains ,far from the countries<br> Vokalia and
+                    Consonantia,there lived the blind text.</h3>
+                <h2 class="cc-para">Mark Huff</h2>
+
+            </div>
+
+
+
+
+        </section>
+
+        <section class="footer">
+            <div class="footer-col">
+                <div>
+                    <h2>HAVE A QUESTION?</h2>
+                    <i></i>
+                    <p> 48 Meridian Avenue,Suite 210,<br>Springfield</p>
+                    <i></i>
+                    <p>+74746494794679</p>
+                    <i></i>
+                    <p>hello@example.com</p>
+                </div>
+                <!-- box -->
+                <div>
+                    <h2>Recent Blogs</h2>
+                    <div class="rb1">
+                        <img src="">
+                        <h3>How to Build a<br> Strategy Your Team <br>Will Follow. </h3>
+                        <i></i>
+                        <h5>Jan 12,2026</h5>
+                        <i></i>
+                        <h5> Admin</h5>
+                    </div>
+                    <div class="rb2">
+                        <img src="">
+                        <h3>Five Signs Your Business Has Outgrown its processes</h3>
+                        <i></i>
+                        <h5>Feb 28,2026</h5>
+                        <i></i>
+                        <h5>Admin</h5>
+                        <i></i>
+                        <h5>19</h5>
+
+                    </div>
+                </div>
+                <!-- box -->
+                <div>
+                    <h2>Links</h2>
+                    <h4>Home</h4>
+                    <h4>About</h4>
+                    <h4>Services</h4>
+                    <h4>Projects</h4>
+                    <h4>Contacts</h4>
+                </div>
+                <!-- box -->
+                <div>
+                    <h2>Subscribe</h2>
+                    <input type="text">Enter Email Address</input>
+                    <div class="sbs-btn">
+                        <a href="">Subscribe</a>
+                        <div class="cwu">
+                            <h2>Contact With Us</h2>
+                            <div class="end-icons">
+                                <i></i>
+                                <i></i>
+                                <i></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+<section>
+  <h3>  Copyright@2026 All Rights Reserved| This template is made with🤍 by colorlib.</h3>
+</section>
+
+
+
+</body>
+
+</html>

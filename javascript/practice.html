@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Document</title>
+</head>
+<body>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript & Web Development Interactive Playground</title>
+    <!-- Tailwind CSS for modern responsive styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        code, pre {
+            font-family: 'Fira Code', monospace;
+        }
+        .tab-btn.active {
+            border-bottom: 3px solid #3b82f6;
+            color: #3b82f6;
+            font-weight: 600;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-slate-800 border-b border-slate-700 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="bg-amber-400 text-slate-900 p-2 rounded-lg font-bold text-xl flex items-center justify-center w-10 h-10 shadow-lg">
+                    JS
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg leading-tight text-white">JavaScript Beginner Playground</h1>
+                    <p class="text-xs text-slate-400">HTML + CSS + Core JS Fundamentals</p>
+                </div>
+            </div>
+            <div class="hidden sm:flex items-center space-x-2 text-xs bg-slate-900 px-3 py-1.5 rounded-full border border-slate-700 text-slate-300">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>Interactive Live Mode</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8 flex flex-col gap-6">
+
+        <!-- Navigation Tabs -->
+        <nav class="flex overflow-x-auto space-x-2 border-b border-slate-700 pb-2 scrollbar-none">
+            <button onclick="switchTab('tab-datatypes')" id="btn-tab-datatypes" class="tab-btn active px-4 py-2.5 text-sm font-medium whitespace-nowrap text-slate-400 hover:text-slate-200 transition-colors flex items-center gap-2">
+                <i class="fa-solid font-mono text-amber-400">1.</i> Variables & Data Types
+            </button>
+            <button onclick="switchTab('tab-arithmetic')" id="btn-tab-arithmetic" class="tab-btn px-4 py-2.5 text-sm font-medium whitespace-nowrap text-slate-400 hover:text-slate-200 transition-colors flex items-center gap-2">
+                <i class="fa-solid font-mono text-blue-400">2.</i> Arithmetic Operators
+            </button>
+            <button onclick="switchTab('tab-relational')" id="btn-tab-relational" class="tab-btn px-4 py-2.5 text-sm font-medium whitespace-nowrap text-slate-400 hover:text-slate-200 transition-colors flex items-center gap-2">
+                <i class="fa-solid font-mono text-emerald-400">3.</i> Relational Operators
+            </button>
+            <button onclick="switchTab('tab-logical')" id="btn-tab-logical" class="tab-btn px-4 py-2.5 text-sm font-medium whitespace-nowrap text-slate-400 hover:text-slate-200 transition-colors flex items-center gap-2">
+                <i class="fa-solid font-mono text-purple-400">4.</i> Logical Operators
+            </button>
+            <button onclick="switchTab('tab-concat')" id="btn-tab-concat" class="tab-btn px-4 py-2.5 text-sm font-medium whitespace-nowrap text-slate-400 hover:text-slate-200 transition-colors flex items-center gap-2">
+                <i class="fa-solid font-mono text-rose-400">5.</i> String Concatenation
+            </button>
+        </nav>
+
+        <!-- SECTIONS -->
+
+        <!-- 1. Variables & Data Types -->
+        <section id="tab-datatypes" class="tab-content block space-y-6">
+            <div class="bg-slate-800 rounded-xl p-5 border border-slate-700 shadow-xl">
+                <h2 class="text-xl font-bold text-amber-400 mb-2 flex items-center gap-2">
+                    <i class="fa-solid fa-database text-lg"></i> Variables & Data Types
+                </h2>
+                <p class="text-slate-300 text-sm mb-6">
+                    In JavaScript, variables store data values. We can use <code class="text-amber-300 bg-slate-900 px-1.5 py-0.5 rounded">let</code> or <code class="text-amber-300 bg-slate-900 px-1.5 py-0.5 rounded">const</code>. The operator <code class="text-amber-300 bg-slate-900 px-1.5 py-0.5 rounded">typeof</code> tells us what type of data a variable holds.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Controls -->
+                    <div class="bg-slate-900 p-5 rounded-lg border border-slate-700 space-y-4">
+                        <h3 class="font-semibold text-sm uppercase text-slate-400 tracking-wider">Input Playground</h3>
+                        
+                        <!-- Text Input -->
+                        <div>
+                            <label class="block text-xs font-medium text-slate-300 mb-1">String Variable (Name)</label>
+                            <input type="text" id="dt-string-input" value="Alex" oninput="updateDataTypes()" 
+                                   class="w-full bg-slate-800 border border-slate-700 rounded-md px-3 py-2 text-sm focus:outline-none focus:border-amber-400 text-white">
+                        </div>
+
+                        <!-- Number Input -->
+                        <div>
+                            <label class="block text-xs font-medium text-slate-300 mb-1">Number Variable (Age)</label>
+                            <input type="number" id="dt-number-input" value="21" oninput="updateDataTypes()" 
+                                   class="w-full bg-slate-800 border border-slate-700 rounded-md px-3 py-2 text-sm focus:outline-none focus:border-amber-400 text-white">
+                        </div>
+
+                        <!-- Boolean Input -->
+                        <div>
+                            <label class="block text-xs font-medium text-slate-300 mb-1">Boolean Variable (Is Student)</label>
+                            <select id="dt-bool-input" onchange="updateDataTypes()" 
+                                    class="w-full bg-slate-800 border border-slate-700 rounded-md px-3 py-2 text-sm focus:outline-none focus:border-amber-400 text-white">
+                                <option value="true">true</option>
+                                <option value="false">false</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Output & Types Display -->
+                    <div class="bg-slate-900 p-5 rounded-lg border border-slate-700 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-semibold text-sm uppercase text-slate-400 tracking-wider mb-4">Evaluated Types (`typeof`)</h3>
+                            
+                            <div class="space-y-3 text-sm">
+                                <div class="flex justify-between items-center bg-slate-800 p-3 rounded border border-slate-700">
+                                    <span class="text-slate-300">Value: <span id="out-str-val" class="text-amber-300">"Alex"</span></span>
+                                    <span class="bg-amber-500/20 text-amber-300 px-2.5 py-1 rounded-full text-xs font-mono" id="out-str-type">typeof: string</span>
+                                </div>
+                                <div class="flex justify-between items-center bg-slate-800 p-3 rounded border border-slate-700">
+                                    <span class="text-slate-300">Value: <span id="out-num-val" class="text-blue-300">21</span></span>
+                                    <span class="bg-blue-500/20 text-blue-300 px-2.5 py-1 rounded-full text-xs font-mono" id="out-num-type">typeof: number</span>
+                                </div>
+                                <div class="flex justify-between items-center bg-slate-800 p-3 rounded border border-slate-700">
+                                    <span class="text-slate-300">Value: <span id="out-bool-val" class="text-emerald-300">true</span></span>
+                                    <span class="bg-emerald-500/20 text-emerald-300 px-2.5 py-1 rounded-full text-xs font-mono" id="out-bool-type">typeof: boolean</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Generated Code Snippet -->
+                        <div class="mt-4 pt-3 border-t border-slate-800">
+                            <span class="text-xs text-slate-500 font-mono">JS Equivalent:</span>
+                            <pre class="bg-slate-950 p-2.5 rounded text-xs text-emerald-400 mt-1 overflow-x-auto"><code id="code-dt">let name = "Alex"; // typeof string
+let age = 21; // typeof number
+let isStudent = true; // typeof boolean</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Arithmetic Operators -->
+        <section id="tab-arithmetic" class="tab-content hidden space-y-6">
+            <div class="bg-slate-800 rounded-xl p-5 border border-slate-700 shadow-xl">
+                <h2 class="text-xl font-bold text-blue-400 mb-2 flex items-center gap-2">
+                    <i class="fa-solid fa-calculator text-lg"></i> Arithmetic Operators
+                </h2>
+                <p class="text-slate-300 text-sm mb-6">
+                    Arithmetic operators perform mathematical calculations on numerical values.
+                </p>
+
+                <!-- Inputs -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                    <div class="bg-slate-900 p-4 rounded-lg border border-slate-700">
+                        <label class="block text-xs font-medium text-slate-400 mb-1">Operand A (Num 1)</label>
+                        <input type="number" id="arith-num1" value="12" oninput="updateArithmetic()" 
+                               class="w-full bg-slate-800 border border-slate-700 rounded-md px-3 py-2 text-white font-mono text-lg focus:outline-none focus:border-blue-400">
+                    </div>
+                    <div class="bg-slate-900 p-4 rounded-lg border border-slate-700">
+                        <label class="block text-xs font-medium text-slate-400 mb-1">Operand B (Num 2)</label>
+                        <input type="number" id="arith-num2" value="5" oninput="updateArithmetic()" 
+                               class="w-full bg-slate-800 border border-slate-700 rounded-md px-3 py-2 text-white font-mono text-lg focus:outline-none focus:border-blue-400">
+                    </div>
+                </div>
+
+                <!-- Grid of Operators -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <!-- Addition -->
+                    <div class="bg-slate-900 p-4 rounded-lg border border-slate-700 hover:border-blue-500/50 transition-all">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-xs font-semibold text-slate-400">Addition (+)</span>
+                            <span class="text-xs font-mono text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded">a + b</span>
+                        </div>
+                        <div class="text-2xl font-bold font-mono text-white text-right" id="arith-add-res">17</div>
+                    </div>
+
+                    <!-- Subtraction -->
+                    <div class="bg-slate-900 p-4 rounded-lg border border-slate-700 hover:border-blue-500/50 transition-all">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-xs font-semibold text-slate-400">Subtraction (-)</span>
+                            <span class="text-xs font-mono text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded">a - b</span>
+                        </div>
+                        <div class="text-2xl font-bold font-mono text-white text-right" id="arith-sub-res">7</div>
+                    </div>
+
+                    <!-- Multiplication -->
+                    <div class="bg-slate-900 p-4 rounded-lg border border-slate-700 hover:border-blue-500/50 transition-all">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-xs font-semibold text-slate-400">Multiplication (*)</span>
+                            <span class="text-xs font-mono text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded">a * b</span>
+                        </div>
+                        <div class="text-2xl font-bold font-mono text-white text-right" id="arith-mul-res">60</div>
+                    </div>
+
+                    <!-- Division -->
+                    <div class="bg-slate-900 p-4 rounded-lg border border-slate-700 hover:border-blue-500/50 transition-all">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-xs font-semibold text-slate-400">Division (/)</span>
+                            <span class="text-xs font-mono text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded">a / b</span>
+                        </div>
+                        <div class="text-2xl font-bold font-mono text-white text-right" id="arith-div-res">2.4</div>
+                    </div>
+
+                    <!-- Modulus -->
+                    <div class="bg-slate-900 p-4 rounded-lg border border-slate-700 hover:border-blue-500/50 transition-all sm:col-span-2 lg:col-span-2">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-xs font-semibold text-slate-400">Modulus / Remainder (%)</span>
+                            <span class="text-xs font-mono text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded">a % b</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-slate-500">Remainder after division</span>
+                            <div class="text-2xl font-bold font-mono text-white" id="arith-mod-res">2</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Relational / Comparison Operators -->
+        <section id="tab-relational" class="tab-content hidden space-y-6">
+            <div class="bg-slate-800 rounded-xl p-5 border border-slate-700 shadow-xl">
+                <h2 class="text-xl font-bold text-emerald-400 mb-2 flex items-center gap-2">
+                    <i class="fa-solid fa-code-compare text-lg"></i> Relational & Comparison Operators
+                </h2>
+                <p class="text-slate-300 text-sm mb-6">
+                    Comparison operators compare two values and return a Boolean (<code class="text-emerald-300 bg-slate-900 px-1 py-0.5 rounded">true</code> or <code class="text-emerald-300 bg-slate-900 px-1 py-0.5 rounded">false</code>).
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Inputs -->
+                    <div class="bg-slate-900 p-5 rounded-lg border border-slate-700 space-y-4">
+                        <h3 class="font-semibold text-sm uppercase text-slate-400 tracking-wider">Set Values</h3>
+                        
+                        <div>
+                            <label class="block text-xs font-medium text-slate-300 mb-1">Value A</label>
+                            <input type="text" id="rel-val1" value="10" oninput="updateRelational()" 
+                                   class="w-full bg-slate-800 border border-slate-700 rounded-md px-3 py-2 text-white font-mono focus:outline-none focus:border-emerald-400">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-medium text-slate-300 mb-1">Value B</label>
+                            <input type="text" id="rel-val2" value="20" oninput="updateRelational()" 
+                                   class="w-full bg-slate-800 border border-slate-700 rounded-md px-3 py-2 text-white font-mono focus:outline-none focus:border-emerald-400">
+                        </div>
+
+                        <p class="text-xs text-slate-400 italic">
+                            * Values are automatically evaluated as numbers if numeric, or strings if text.
+                        </p>
+                    </div>
+
+                    <!-- Comparison Table -->
+                    <div class="bg-slate-900 p-5 rounded-lg border border-slate-700 space-y-3">
+                        <h3 class="font-semibold text-sm uppercase text-slate-400 tracking-wider mb-2">Comparison Results</h3>
+
+                        <!-- Greater than -->
+                        <div class="flex justify-between items-center p-2 rounded bg-slate-800 border border-slate-700">
+                            <span class="font-mono text-sm">a &gt; b</span>
+                            <span id="rel-gt" class="font-mono text-xs px-2.5 py-1 rounded font-bold">false</span>
+                        </div>
+
+                        <!-- Less than -->
+                        <div class="flex justify-between items-center p-2 rounded bg-slate-800 border border-slate-700">
+                            <span class="font-mono text-sm">a &lt; b</span>
+                            <span id="rel-lt" class="font-mono text-xs px-2.5 py-1 rounded font-bold">true</span>
+                        </div>
+
+                        <!-- Strict Equal -->
+                        <div class="flex justify-between items-center p-2 rounded bg-slate-800 border border-slate-700">
+                            <div>
+                                <span class="font-mono text-sm">a === b</span>
+                                <span class="text-xs text-slate-500 block">Strict Equal (Value & Type)</span>
+                            </div>
+                            <span id="rel-seq" class="font-mono text-xs px-2.5 py-1 rounded font-bold">false</span>
+                        </div>
+
+                        <!-- Strict Not Equal -->
+                        <div class="flex justify-between items-center p-2 rounded bg-slate-800 border border-slate-700">
+                            <div>
+                                <span class="font-mono text-sm">a !== b</span>
+                                <span class="text-xs text-slate-500 block">Strict Not Equal</span>
+                            </div>
+                            <span id="rel-sneq" class="font-mono text-xs px-2.5 py-1 rounded font-bold">true</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Logical Operators -->
+        <section id="tab-logical" class="tab-content hidden space-y-6">
+            <div class="bg-slate-800 rounded-xl p-5 border border-slate-700 shadow-xl">
+                <h2 class="text-xl font-bold text-purple-400 mb-2 flex items-center gap-2">
+                    <i class="fa-solid fa-diagram-project text-lg"></i> Logical Operators
+                </h2>
+                <p class="text-slate-300 text-sm mb-6">
+                    Logical operators determine logic between booleans: <code class="text-purple-300 bg-slate-900 px-1.5 py-0.5 rounded">&&</code> (AND), <code class="text-purple-300 bg-slate-900 px-1.5 py-0.5 rounded">||</code> (OR), and <code class="text-purple-300 bg-slate-900 px-1.5 py-0.5 rounded">!</code> (NOT).
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Toggle Controls -->
+                    <div class="bg-slate-900 p-5 rounded-lg border border-slate-700 space-y-6">
+                        <h3 class="font-semibold text-sm uppercase text-slate-400 tracking-wider">Toggle Condition States</h3>
+
+                        <!-- Condition A -->
+                        <div class="flex justify-between items-center bg-slate-800 p-4 rounded-lg border border-slate-700">
+                            <div>
+                                <div class="font-medium text-sm">Condition A</div>
+                                <div class="text-xs text-slate-400">Current: <span id="log-a-val" class="font-mono text-emerald-400">true</span></div>
+                            </div>
+                            <button onclick="toggleLogic('A')" id="btn-logic-a" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-md text-xs font-bold transition-colors">
+                                Toggle State
+                            </button>
+                        </div>
+
+                        <!-- Condition B -->
+                        <div class="flex justify-between items-center bg-slate-800 p-4 rounded-lg border border-slate-700">
+                            <div>
+                                <div class="font-medium text-sm">Condition B</div>
+                                <div class="text-xs text-slate-400">Current: <span id="log-b-val" class="font-mono text-rose-400">false</span></div>
+                            </div>
+                            <button onclick="toggleLogic('B')" id="btn-logic-b" class="px-4 py-2 bg-rose-600 hover:bg-rose-500 text-white rounded-md text-xs font-bold transition-colors">
+                                Toggle State
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Logical Results -->
+                    <div class="bg-slate-900 p-5 rounded-lg border border-slate-700 space-y-4">
+                        <h3 class="font-semibold text-sm uppercase text-slate-400 tracking-wider mb-2">Evaluated Expressions</h3>
+
+                        <!-- AND -->
+                        <div class="bg-slate-800 p-3.5 rounded border border-slate-700 flex justify-between items-center">
+                            <div>
+                                <span class="font-mono text-sm text-purple-300">A && B</span>
+                                <span class="text-xs text-slate-400 block">AND (Both must be true)</span>
+                            </div>
+                            <span id="res-log-and" class="font-mono text-xs px-3 py-1 rounded-full font-bold">false</span>
+                        </div>
+
+                        <!-- OR -->
+                        <div class="bg-slate-800 p-3.5 rounded border border-slate-700 flex justify-between items-center">
+                            <div>
+                                <span class="font-mono text-sm text-purple-300">A || B</span>
+                                <span class="text-xs text-slate-400 block">OR (At least one is true)</span>
+                            </div>
+                            <span id="res-log-or" class="font-mono text-xs px-3 py-1 rounded-full font-bold">true</span>
+                        </div>
+
+                        <!-- NOT A -->
+                        <div class="bg-slate-800 p-3.5 rounded border border-slate-700 flex justify-between items-center">
+                            <div>
+                                <span class="font-mono text-sm text-purple-300">!A</span>
+                                <span class="text-xs text-slate-400 block">NOT (Inverts Condition A)</span>
+                            </div>
+                            <span id="res-log-nota" class="font-mono text-xs px-3 py-1 rounded-full font-bold">false</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. String Concatenation -->
+        <section id="tab-concat" class="tab-content hidden space-y-6">
+            <div class="bg-slate-800 rounded-xl p-5 border border-slate-700 shadow-xl">
+                <h2 class="text-xl font-bold text-rose-400 mb-2 flex items-center gap-2">
+                    <i class="fa-solid fa-link text-lg"></i> String Concatenation
+                </h2>
+                <p class="text-slate-300 text-sm mb-6">
+                    Concatenation joins strings together using the <code class="text-rose-300 bg-slate-900 px-1 py-0.5 rounded">+</code> operator or Template Literals (<code class="text-rose-300 bg-slate-900 px-1 py-0.5 rounded">`${...}`</code>).
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Input Controls -->
+                    <div class="bg-slate-900 p-5 rounded-lg border border-slate-700 space-y-4">
+                        <h3 class="font-semibold text-sm uppercase text-slate-400 tracking-wider">String Inputs</h3>
+
+                        <div>
+                            <label class="block text-xs font-medium text-slate-300 mb-1">First Name</label>
+                            <input type="text" id="concat-fname" value="Jane" oninput="updateConcat()" 
+                                   class="w-full bg-slate-800 border border-slate-700 rounded-md px-3 py-2 text-white focus:outline-none focus:border-rose-400">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-medium text-slate-300 mb-1">Last Name</label>
+                            <input type="text" id="concat-lname" value="Doe" oninput="updateConcat()" 
+                                   class="w-full bg-slate-800 border border-slate-700 rounded-md px-3 py-2 text-white focus:outline-none focus:border-rose-400">
+                        </div>
+                    </div>
+
+                    <!-- Visual Output & Code -->
+                    <div class="bg-slate-900 p-5 rounded-lg border border-slate-700 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-semibold text-sm uppercase text-slate-400 tracking-wider mb-3">Live Output Result</h3>
+                            <div class="p-4 bg-slate-800 rounded-lg border border-slate-700">
+                                <span class="text-xs text-slate-500 block mb-1">Combined Full Name:</span>
+                                <div class="text-2xl font-bold text-rose-400" id="concat-result">Jane Doe</div>
+                            </div>
+                        </div>
+
+                        <!-- Code Preview -->
+                        <div class="mt-4 pt-3 border-t border-slate-800 space-y-2">
+                            <span class="text-xs text-slate-500 font-mono block">JavaScript Code Methods:</span>
+                            <pre class="bg-slate-950 p-2 rounded text-xs text-rose-300 overflow-x-auto"><code id="concat-code-plus">let full = firstName + " " + lastName;</code></pre>
+                            <pre class="bg-slate-950 p-2 rounded text-xs text-amber-300 overflow-x-auto"><code id="concat-code-template">let full = `${firstName} ${lastName}`;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 border-t border-slate-700 py-4 mt-auto text-center text-xs text-slate-400">
+        Interactive Web Development Tutorial Core Concepts • Built with HTML, CSS, and JS
+    </footer>
+
+    <!-- Interactive JavaScript Engine -->
+    <script>
+        // Tab Switcher Logic
+        function switchTab(tabId) {
+            // Hide all contents
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            // Remove active classes from tab buttons
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+
+            // Show selected tab & set active button style
+            document.getElementById(tabId).classList.remove('hidden');
+            document.getElementById('btn-' + tabId).classList.add('active');
+        }
+
+        // 1. Data Types Handler
+        function updateDataTypes() {
+            const strVal = document.getElementById('dt-string-input').value;
+            const numValRaw = document.getElementById('dt-number-input').value;
+            const boolValRaw = document.getElementById('dt-bool-input').value;
+
+            const numVal = Number(numValRaw);
+            const boolVal = boolValRaw === 'true';
+
+            // Display Values
+            document.getElementById('out-str-val').textContent = `"${strVal}"`;
+            document.getElementById('out-num-val').textContent = numValRaw === '' ? 'NaN' : numVal;
+            document.getElementById('out-bool-val').textContent = boolVal.toString();
+
+            // Display typeof Results
+            document.getElementById('out-str-type').textContent = `typeof: ${typeof strVal}`;
+            document.getElementById('out-num-type').textContent = `typeof: ${typeof numVal}`;
+            document.getElementById('out-bool-type').textContent = `typeof: ${typeof boolVal}`;
+
+            // Update Code Snippet
+            document.getElementById('code-dt').textContent = 
+                `let name = "${strVal}"; // typeof ${typeof strVal}\n` +
+                `let age = ${numValRaw || 0}; // typeof ${typeof numVal}\n` +
+                `let isStudent = ${boolVal}; // typeof ${typeof boolVal}`;
+        }
+
+        // 2. Arithmetic Handler
+        function updateArithmetic() {
+            const a = parseFloat(document.getElementById('arith-num1').value) || 0;
+            const b = parseFloat(document.getElementById('arith-num2').value) || 0;
+
+            document.getElementById('arith-add-res').textContent = (a + b);
+            document.getElementById('arith-sub-res').textContent = (a - b);
+            document.getElementById('arith-mul-res').textContent = (a * b);
+            document.getElementById('arith-div-res').textContent = b !== 0 ? (a / b).toFixed(2) : 'Infinity';
+            document.getElementById('arith-mod-res').textContent = b !== 0 ? (a % b) : 'NaN';
+        }
+
+        // 3. Relational Handler
+        function updateRelational() {
+            let v1 = document.getElementById('rel-val1').value;
+            let v2 = document.getElementById('rel-val2').value;
+
+            // Convert numeric strings to numbers for realistic comparison
+            const a = !isNaN(v1) && v1.trim() !== '' ? Number(v1) : v1;
+            const b = !isNaN(v2) && v2.trim() !== '' ? Number(v2) : v2;
+
+            setBoolResult('rel-gt', a > b);
+            setBoolResult('rel-lt', a < b);
+            setBoolResult('rel-seq', a === b);
+            setBoolResult('rel-sneq', a !== b);
+        }
+
+        function setBoolResult(elementId, value) {
+            const el = document.getElementById(elementId);
+            el.textContent = value.toString();
+            if (value) {
+                el.className = "font-mono text-xs px-2.5 py-1 rounded font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/40";
+            } else {
+                el.className = "font-mono text-xs px-2.5 py-1 rounded font-bold bg-rose-500/20 text-rose-400 border border-rose-500/40";
+            }
+        }
+
+        // 4. Logical Operators Handler
+        let logicA = true;
+        let logicB = false;
+
+        function toggleLogic(varName) {
+            if (varName === 'A') {
+                logicA = !logicA;
+                const elA = document.getElementById('log-a-val');
+                elA.textContent = logicA;
+                elA.className = logicA ? 'font-mono text-emerald-400' : 'font-mono text-rose-400';
+            } else {
+                logicB = !logicB;
+                const elB = document.getElementById('log-b-val');
+                elB.textContent = logicB;
+                elB.className = logicB ? 'font-mono text-emerald-400' : 'font-mono text-rose-400';
+            }
+
+            // Calculate results
+            setBoolResult('res-log-and', logicA && logicB);
+            setBoolResult('res-log-or', logicA || logicB);
+            setBoolResult('res-log-nota', !logicA);
+        }
+
+        // 5. String Concatenation Handler
+        function updateConcat() {
+            const fname = document.getElementById('concat-fname').value;
+            const lname = document.getElementById('concat-lname').value;
+
+            const fullName = fname + " " + lname;
+            document.getElementById('concat-result').textContent = fullName || "(empty string)";
+
+            // Update code previews
+            document.getElementById('concat-code-plus').textContent = `let full = "${fname}" + " " + "${lname}"; // "${fullName}"`;
+            document.getElementById('concat-code-template').textContent = `let full = \`${fname} ${lname}\`; // "${fullName}"`;
+        }
+
+        // Initial setup on load
+        window.onload = function() {
+            updateDataTypes();
+            updateArithmetic();
+            updateRelational();
+            toggleLogic('init'); // set initial states
+            updateConcat();
+        };
+    </script>
+</body>
+</html>  
+</body>
+</html>
